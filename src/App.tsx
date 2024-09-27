@@ -1,10 +1,11 @@
 import './App.css'
 import Form from './components/Form'
+import Item from './components/Item'
 import { useTodoStore } from './store/todoStore'
 
 function App() {
 
-  const { todos, addTodo } = useTodoStore()
+  const { todos } = useTodoStore()
 
   return (
     <div>
@@ -19,15 +20,7 @@ function App() {
       {todos.length === 0 && <p>No hay tareas</p>}
 
       {
-        todos.map(todo => (
-          <div key={todo.id} style={{
-            border: '1px solid #fff',
-            borderRadius: '5px',
-            marginBottom: '20px',
-          }}>
-            <span>{todo.text}</span>
-          </div>
-        ))
+        todos.map(todo => <Item key={todo.id} todo={todo} />)
       }
     </div>
   )
