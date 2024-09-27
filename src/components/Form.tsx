@@ -17,16 +17,7 @@ export default function Form() {
   return (
     <form onSubmit={handleSubmit}>
       <input
-        style={
-          {
-            padding: '10px',
-            borderRadius: '5px',
-            border: '1px solid #ccc',
-            marginRight: '10px',
-            width: '300px',
-            marginBottom: '20px',
-          }
-        }
+        className="inputForm"
         type="text"
         value={text}
         name="text"
