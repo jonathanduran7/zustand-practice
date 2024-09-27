@@ -13,7 +13,10 @@ function App() {
 
       {
         todos.map(todo => (
-          <div key={todo.id}>
+          <div key={todo.id} style={{
+            border: '1px solid #fff',
+            borderRadius: '5px',
+          }}>
             <span>{todo.text}</span>
           </div>
         ))
