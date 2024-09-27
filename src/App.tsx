@@ -1,23 +1,23 @@
 import './App.css'
-import { create, useStore } from 'zustand';
-
-const useCountStore = create((set) => ({
-  count: 2,
-  increment: () => set((state) => ({ count: state.count + 1 })),
-  decrement: () => set((state) => ({ count: state.count - 1 })),
-}))
+import { useTodoStore } from './store/todoStore'
 
 function App() {
 
-  const { count, increment, decrement } = useStore(useCountStore)
+  const { todos, addTodo } = useTodoStore()
 
   return (
     <div>
-      <h1>Hola {count}</h1>
+      <h1>Tareas</h1>
 
-      <button onClick={increment}>Increment</button>
+      {todos.length === 0 && <p>No hay tareas</p>}
 
-      <button onClick={decrement}>Decrement </button>
+      {
+        todos.map(todo => (
+          <div key={todo.id}>
+            <span>{todo.text}</span>
+          </div>
+        ))
+      }
     </div>
   )
 }
